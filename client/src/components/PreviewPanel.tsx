@@ -1,4 +1,5 @@
 import { DownloadIcon, ImageIcon, Loader2Icon } from "lucide-react";
+import { useState } from "react";
 
 // Mock types for the artifact
 type AspectRatio = '16:9' | '1:1' | '9:16';
@@ -71,8 +72,8 @@ const PreviewPanel = ({thumbnail, isLoading, aspectRatio}: {thumbnail: IThumbnai
 
 // Demo component
 export default function App() {
-  const [aspectRatio] = React.useState<AspectRatio>('16:9');
-  const [thumbnail] = React.useState<IThumbnail>({
+  const [aspectRatio] = useState<AspectRatio>('16:9');
+  const [thumbnail] = useState<IThumbnail>({
     image_url: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=450&fit=crop',
     title: 'Sample Thumbnail'
   });

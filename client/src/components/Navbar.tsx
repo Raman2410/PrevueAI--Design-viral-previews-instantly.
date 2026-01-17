@@ -23,7 +23,7 @@ export default function Navbar() {
                     
                         <Link to="/" className="hover:text-pink-500 transition">Home</Link>
                         <Link to="/generate" className="hover:text-pink-500 transition">Generate</Link>
-                        <Link to="/my-generations" className="hover:text-pink-500 transition">My Generations</Link>
+                        <Link to="/my-generation" className="hover:text-pink-500 transition">My Generations</Link>
                         <Link to="#" className="hover:text-pink-500 transition">Contact</Link>
                  
                 </div>
@@ -39,7 +39,7 @@ export default function Navbar() {
             <div className={`fixed inset-0 z-100 bg-black/40 backdrop-blur flex flex-col items-center justify-center text-lg gap-8 md:hidden transition-transform duration-400 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
                <Link onClick={() => setIsOpen(false)}  to='/'>Home</Link>
                <Link onClick={() => setIsOpen(false)} to="/generate">Generate</Link>
-                        <Link onClick={() => setIsOpen(false)} to="/my-generations" > My Generations</Link>
+                        <Link onClick={() => setIsOpen(false)} to="/my-generation" > My Generations</Link>
                         <Link onClick={() => setIsOpen(false)} to="#">My Contact</Link>
                         <Link onClick={() => setIsOpen(false)} to='/login'>Login</Link>
                 <button onClick={() => setIsOpen(false)} className="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-pink-600 hover:bg-pink-700 transition text-white rounded-md flex">
