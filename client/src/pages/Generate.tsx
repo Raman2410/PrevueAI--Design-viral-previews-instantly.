@@ -14,7 +14,7 @@ const Generate = () => {
     const [thumbnail,setThumbnail] = useState<IThumbnail | null>(null);
     const [loading,setLoading] = useState(false);
     const [aspectRatio,setAspectRatio] = useState<AspectRatio>('16:9');
-    const [colorSchemeId,setColorSchemeId] = useState<string>(colorSchemes[0].id);
+    const [colorSchemeId,setColorSchemeId] = useState<string>(colorSchemes[0]?.id||'');
     const[style,setStyle] = useState<ThumbnailStyle>('Bold & Graphic');
     const[styleDropdownOpen,setStyleDropdownOpen] = useState(false);
 
@@ -61,7 +61,7 @@ const Generate = () => {
                                     <label className="block text-sm font-medium">Title or Topic</label>
                                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} maxLength={100} placeholder="e.g., 10 Tips for better Sleep" className="w-full px-4 py-3 rounded-lg border border-white/12 bg-black/20 text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-pink-500" />
                                     <div className="flex justify-end">
-                                        <span className="text-xs text-zinc-400">{title.length}/100</span>
+                                        <span className="text-xs text-zinc-400">{title?.length||0}/100</span>
                                     </div>
                                   </div>
                                   {/* AspectRatioSelector */}
@@ -75,13 +75,13 @@ const Generate = () => {
                                     <label className="block text-sm font-medium">Additional Details</label>
                                     <textarea value={additionalDetails} onChange={(e) => setAdditionalDetails(e.target.value)} maxLength={200} placeholder="e.g., Include a call-to-action button and a vibrant color scheme." className="w-full px-4 py-3 rounded-lg border border-white/12 bg-black/20 text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-pink-500" rows={3}></textarea>
                                     <div className="flex justify-end">
-                                        <span className="text-xs text-zinc-400">{additionalDetails.length}/200</span>
+                                        <span className="text-xs text-zinc-400">{additionalDetails?.length||0}/200</span>
                                     </div>
                                   </div>
                             </div>
                             {/* button */}
                             {!id &&(
-                                       <button onClick={handleGenerate} className="text-[15px] w-full py-3.5 rounded-xl font-medium bg-linear-to-b from-pink-500 to-pink-600 hover:from-pink-700 disabled:cursor-not-allowed transition-colors"> 
+                                       <button onClick={handleGenerate} className="text-[15px] w-full py-3.5 rounded-xl font-medium bg-gradient-to-b from-pink-500 to-pink-600 hover:from-pink-700 disabled:cursor-not-allowed transition-colors"> 
                                        {loading ? 'Generating...':'Generate Thumbnail'}</button>
                             )}
                            
